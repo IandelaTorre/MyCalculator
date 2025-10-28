@@ -19,48 +19,54 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Dc-3R-Hxu">
                                 <rect key="frame" x="16" y="118" width="361" height="666"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-lv-e3b">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="129"/>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="243" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-lv-e3b">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-10-0t2">
-                                                <rect key="frame" x="32" y="49" width="297" height="32"/>
+                                                <rect key="frame" x="32" y="9.6666666666666714" width="309" height="32"/>
                                                 <segments>
                                                     <segment title="Calculadora"/>
                                                     <segment title="Conversor"/>
                                                 </segments>
                                             </segmentedControl>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="3Qh-10-0t2" firstAttribute="leading" secondItem="Cdd-lv-e3b" secondAttribute="leading" constant="32" id="JL8-ow-blh"/>
-                                            <constraint firstItem="3Qh-10-0t2" firstAttribute="centerY" secondItem="Cdd-lv-e3b" secondAttribute="centerY" id="kmV-3z-Dn7"/>
-                                            <constraint firstAttribute="trailing" secondItem="3Qh-10-0t2" secondAttribute="trailing" constant="32" id="yje-Kd-y2X"/>
+                                            <constraint firstAttribute="height" constant="50" id="9vZ-6B-BB4"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="3Qh-10-0t2" secondAttribute="trailing" constant="20" symbolic="YES" id="KDC-K6-dy2"/>
+                                            <constraint firstItem="3Qh-10-0t2" firstAttribute="leading" secondItem="Cdd-lv-e3b" secondAttribute="leading" constant="32" id="Qd7-Eb-MQ8"/>
+                                            <constraint firstItem="3Qh-10-0t2" firstAttribute="centerY" secondItem="Cdd-lv-e3b" secondAttribute="centerY" id="djt-aI-InF"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-ua-pYB">
-                                        <rect key="frame" x="0.0" y="149" width="361" height="40.666666666666657"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REf-ND-3s1">
+                                        <rect key="frame" x="0.0" y="70" width="361" height="119.66666666666669"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12+34*1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-KG-Hbh">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-Ky-PGN">
-                                                <rect key="frame" x="0.0" y="20.333333333333314" width="361" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-ua-pYB">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="119.66666666666667"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12+34*1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-KG-Hbh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-Ky-PGN">
+                                                        <rect key="frame" x="0.0" y="60" width="361" height="59.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        <color key="textColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="uig-KG-Hbh" secondAttribute="trailing" id="5mf-gc-jxR"/>
-                                            <constraint firstAttribute="trailing" secondItem="wF2-Ky-PGN" secondAttribute="trailing" id="HY1-rM-Tdd"/>
-                                            <constraint firstItem="wF2-Ky-PGN" firstAttribute="leading" secondItem="8h0-ua-pYB" secondAttribute="leading" id="JKy-u7-qOt"/>
-                                            <constraint firstItem="uig-KG-Hbh" firstAttribute="leading" secondItem="8h0-ua-pYB" secondAttribute="leading" id="dfb-zI-kVh"/>
+                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="leading" secondItem="REf-ND-3s1" secondAttribute="leading" id="Aot-Ws-2Vz"/>
+                                            <constraint firstAttribute="bottom" secondItem="8h0-ua-pYB" secondAttribute="bottom" id="LDl-h6-hoS"/>
+                                            <constraint firstAttribute="trailing" secondItem="8h0-ua-pYB" secondAttribute="trailing" id="Nx6-34-mi5"/>
+                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="top" secondItem="REf-ND-3s1" secondAttribute="top" id="iSd-J8-YZc"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvm-AB-la7">
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvm-AB-la7">
                                         <rect key="frame" x="0.0" y="209.66666666666671" width="361" height="456.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-SQ-U5l">
@@ -70,11 +76,11 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="75.333333333333329"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="tnN-HX-OXB" secondAttribute="height" multiplier="1:1" id="AcN-dz-xRK"/>
+                                                            <constraint firstAttribute="width" secondItem="tnN-HX-OXB" secondAttribute="height" multiplier="1:1" id="T7z-gc-ZaJ"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="AC">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="AC" cornerStyle="capsule">
+                                                            <backgroundConfiguration key="background"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -85,8 +91,7 @@
                                                         <rect key="frame" x="0.0" y="95.333333333333314" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="n2I-4A-mcb" secondAttribute="height" multiplier="1:1" id="X7U-Jl-K5Z"/>
-                                                            <constraint firstAttribute="width" secondItem="n2I-4A-mcb" secondAttribute="height" multiplier="1:1" id="hfk-Ql-Qdh"/>
+                                                            <constraint firstAttribute="width" secondItem="n2I-4A-mcb" secondAttribute="height" multiplier="1:1" id="Bbu-y5-Rmw"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="7">
@@ -101,8 +106,7 @@
                                                         <rect key="frame" x="0.0" y="190.66666666666669" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="kzx-6L-3mw" secondAttribute="height" multiplier="1:1" id="9pO-FL-Wbb"/>
-                                                            <constraint firstAttribute="width" secondItem="kzx-6L-3mw" secondAttribute="height" multiplier="1:1" id="vX7-Ya-3kL"/>
+                                                            <constraint firstAttribute="width" secondItem="kzx-6L-3mw" secondAttribute="height" multiplier="1:1" id="dpn-yi-364"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="4">
@@ -117,8 +121,7 @@
                                                         <rect key="frame" x="0.0" y="285.99999999999994" width="75.333333333333329" height="75"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="ZUc-xX-FNX" secondAttribute="height" multiplier="1:1" id="SLq-cN-V8I"/>
-                                                            <constraint firstAttribute="width" secondItem="ZUc-xX-FNX" secondAttribute="height" multiplier="1:1" id="WCl-y8-Syf"/>
+                                                            <constraint firstAttribute="width" secondItem="ZUc-xX-FNX" secondAttribute="height" multiplier="1:1" id="bdF-2W-MgW"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="1">
@@ -133,8 +136,7 @@
                                                         <rect key="frame" x="0.0" y="380.99999999999994" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="J5n-hT-Ft2" secondAttribute="height" multiplier="1:1" id="3uc-X0-mlY"/>
-                                                            <constraint firstAttribute="width" secondItem="J5n-hT-Ft2" secondAttribute="height" multiplier="1:1" id="J7V-HP-8DV"/>
+                                                            <constraint firstAttribute="width" secondItem="J5n-hT-Ft2" secondAttribute="height" multiplier="1:1" id="ZXP-9l-e96"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="%">
@@ -154,11 +156,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="75.333333333333329"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="3Ew-fi-ZV3" secondAttribute="height" multiplier="1:1" id="UgO-KT-4CS"/>
+                                                            <constraint firstAttribute="width" secondItem="3Ew-fi-ZV3" secondAttribute="height" multiplier="1:1" id="aCa-ai-q2d"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="/">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="/" cornerStyle="capsule">
+                                                            <backgroundConfiguration key="background"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -169,8 +172,7 @@
                                                         <rect key="frame" x="0.0" y="95.333333333333314" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="r42-jF-Y6e" secondAttribute="height" multiplier="1:1" id="5Al-VE-JGS"/>
-                                                            <constraint firstAttribute="width" secondItem="r42-jF-Y6e" secondAttribute="height" multiplier="1:1" id="VJp-8p-wQn"/>
+                                                            <constraint firstAttribute="width" secondItem="r42-jF-Y6e" secondAttribute="height" multiplier="1:1" id="xrF-lm-hgl"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="8" cornerStyle="capsule">
@@ -185,8 +187,7 @@
                                                         <rect key="frame" x="0.0" y="190.66666666666669" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="2tb-ch-R81" secondAttribute="height" multiplier="1:1" id="Ac7-rD-9NR"/>
-                                                            <constraint firstAttribute="width" secondItem="2tb-ch-R81" secondAttribute="height" multiplier="1:1" id="FtQ-Fh-wwc"/>
+                                                            <constraint firstAttribute="width" secondItem="2tb-ch-R81" secondAttribute="height" multiplier="1:1" id="hVE-yq-UwF"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="5">
@@ -201,8 +202,7 @@
                                                         <rect key="frame" x="0.0" y="285.99999999999994" width="75.333333333333329" height="75"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="8y0-hF-OjT" secondAttribute="height" multiplier="1:1" id="eqZ-WD-bb4"/>
-                                                            <constraint firstAttribute="width" secondItem="8y0-hF-OjT" secondAttribute="height" multiplier="1:1" id="iMx-lk-jhQ"/>
+                                                            <constraint firstAttribute="width" secondItem="8y0-hF-OjT" secondAttribute="height" multiplier="1:1" id="BHM-cU-g94"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="2">
@@ -217,8 +217,7 @@
                                                         <rect key="frame" x="0.0" y="380.99999999999994" width="75.333333333333329" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="GQx-Hg-adZ" secondAttribute="height" multiplier="1:1" id="RKQ-V1-XJL"/>
-                                                            <constraint firstAttribute="width" secondItem="GQx-Hg-adZ" secondAttribute="height" multiplier="1:1" id="XW1-9p-GRm"/>
+                                                            <constraint firstAttribute="width" secondItem="GQx-Hg-adZ" secondAttribute="height" multiplier="1:1" id="0p6-4v-Od1"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="0">
@@ -238,11 +237,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75.333333333333329"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="6JY-xX-zkf" secondAttribute="height" multiplier="1:1" id="EP7-s4-fgn"/>
+                                                            <constraint firstAttribute="width" secondItem="6JY-xX-zkf" secondAttribute="height" multiplier="1:1" id="kqE-gE-owu"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="X">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="X" cornerStyle="capsule">
+                                                            <backgroundConfiguration key="background"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -253,8 +253,7 @@
                                                         <rect key="frame" x="0.0" y="95.333333333333314" width="75" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="3ai-mF-7KD" secondAttribute="height" multiplier="1:1" id="0xj-hB-met"/>
-                                                            <constraint firstAttribute="width" secondItem="3ai-mF-7KD" secondAttribute="height" multiplier="1:1" id="nJO-2d-lJi"/>
+                                                            <constraint firstAttribute="width" secondItem="3ai-mF-7KD" secondAttribute="height" multiplier="1:1" id="Jhy-Di-7se"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="9">
@@ -269,8 +268,7 @@
                                                         <rect key="frame" x="0.0" y="190.66666666666669" width="75" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="9eu-GM-jds" secondAttribute="height" multiplier="1:1" id="PJv-o4-ybH"/>
-                                                            <constraint firstAttribute="width" secondItem="9eu-GM-jds" secondAttribute="height" multiplier="1:1" id="f38-cq-ZHv"/>
+                                                            <constraint firstAttribute="width" secondItem="9eu-GM-jds" secondAttribute="height" multiplier="1:1" id="DL7-6y-VKc"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="6">
@@ -285,8 +283,7 @@
                                                         <rect key="frame" x="0.0" y="285.99999999999994" width="75" height="75"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="g0d-jA-Usv" secondAttribute="height" multiplier="1:1" id="Inz-Su-6sZ"/>
-                                                            <constraint firstAttribute="width" secondItem="g0d-jA-Usv" secondAttribute="height" multiplier="1:1" id="ihZ-ht-0Ng"/>
+                                                            <constraint firstAttribute="width" secondItem="g0d-jA-Usv" secondAttribute="height" multiplier="1:1" id="A6Q-0e-dKr"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="3">
@@ -301,8 +298,7 @@
                                                         <rect key="frame" x="0.0" y="380.99999999999994" width="75" height="75.333333333333314"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="xD4-An-tDf" secondAttribute="height" multiplier="1:1" id="6Yt-Ma-mqY"/>
-                                                            <constraint firstAttribute="width" secondItem="xD4-An-tDf" secondAttribute="height" multiplier="1:1" id="scT-3D-eCE"/>
+                                                            <constraint firstAttribute="width" secondItem="xD4-An-tDf" secondAttribute="height" multiplier="1:1" id="Xcv-pA-lhX"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title=".">
@@ -325,12 +321,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="75.333333333333329"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="RN1-mt-KX2" secondAttribute="height" multiplier="1:1" id="BjX-ea-JcP"/>
+                                                                    <constraint firstAttribute="width" secondItem="RN1-mt-KX2" secondAttribute="height" multiplier="1:1" id="dcs-kP-bef"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="&lt;-">
-                                                                    <backgroundConfiguration key="background" cornerRadius="40"/>
-                                                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="←" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background"/>
+                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                                                    <color key="baseForegroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
                                                                     <action selector="BackspaceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vxk-Ol-QyT"/>
@@ -340,12 +337,12 @@
                                                                 <rect key="frame" x="0.0" y="95.333333333333314" width="75.333333333333329" height="75.333333333333314"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="RMI-qr-KKH" secondAttribute="height" multiplier="1:1" id="P9U-4F-03j"/>
-                                                                    <constraint firstAttribute="width" secondItem="RMI-qr-KKH" secondAttribute="height" multiplier="1:1" id="yHC-9Z-XdC"/>
+                                                                    <constraint firstAttribute="width" secondItem="RMI-qr-KKH" secondAttribute="height" multiplier="1:1" id="gq6-Fz-25w"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="-">
-                                                                    <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="-" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background"/>
+                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
@@ -356,12 +353,12 @@
                                                                 <rect key="frame" x="0.0" y="190.66666666666669" width="75.333333333333329" height="75.333333333333314"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="rLd-wI-N6f" secondAttribute="height" multiplier="1:1" id="6gM-zh-f11"/>
-                                                                    <constraint firstAttribute="width" secondItem="rLd-wI-N6f" secondAttribute="height" multiplier="1:1" id="yhx-AA-JaP"/>
+                                                                    <constraint firstAttribute="width" secondItem="rLd-wI-N6f" secondAttribute="height" multiplier="1:1" id="JhS-aN-NyL"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="+">
-                                                                    <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="+" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background"/>
+                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
@@ -375,11 +372,12 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-vT-Zov" userLabel="=">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="170.33333333333334"/>
-                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="=">
-                                                                    <backgroundConfiguration key="background" cornerRadius="40"/>
-                                                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="=" cornerStyle="capsule">
+                                                                    <backgroundConfiguration key="background"/>
+                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
                                                                     <action selector="EqualButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDA-5c-IXp"/>
@@ -392,15 +390,22 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vvm-AB-la7" secondAttribute="trailing" id="838-7D-rUa"/>
+                                    <constraint firstItem="Cdd-lv-e3b" firstAttribute="leading" secondItem="8Dc-3R-Hxu" secondAttribute="leading" id="Jcj-1O-NhQ"/>
+                                    <constraint firstItem="Cdd-lv-e3b" firstAttribute="top" secondItem="8Dc-3R-Hxu" secondAttribute="top" id="Oo8-vI-cAF"/>
+                                    <constraint firstItem="vvm-AB-la7" firstAttribute="leading" secondItem="8Dc-3R-Hxu" secondAttribute="leading" id="Y1l-HR-aeU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cdd-lv-e3b" secondAttribute="trailing" id="qd9-ou-Odq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Dc-3R-Hxu" secondAttribute="bottom" id="8gl-8v-Ybj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Dc-3R-Hxu" secondAttribute="trailing" constant="16" id="IJy-gQ-kwE"/>
-                            <constraint firstItem="8Dc-3R-Hxu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p0x-6D-blE"/>
-                            <constraint firstItem="8Dc-3R-Hxu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pn3-nn-JgR"/>
+                            <constraint firstItem="8Dc-3R-Hxu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TWe-fd-lxf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Dc-3R-Hxu" secondAttribute="trailing" constant="16" id="j6b-Ig-S5R"/>
+                            <constraint firstItem="8Dc-3R-Hxu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qev-in-eSm"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="8Dc-3R-Hxu" secondAttribute="bottom" id="rny-Av-ADr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -410,6 +415,7 @@
                         <outlet property="decimalButton" destination="xD4-An-tDf" id="zyc-jE-xgv"/>
                         <outlet property="divisionButton" destination="3Ew-fi-ZV3" id="ddn-ke-cBh"/>
                         <outlet property="equalButton" destination="uAD-vT-Zov" id="6TY-eL-C63"/>
+                        <outlet property="labelsUIView" destination="REf-ND-3s1" id="YN1-Al-DhQ"/>
                         <outlet property="multiplicationButton" destination="6JY-xX-zkf" id="yhF-4d-Fyc"/>
                         <outlet property="number0Button" destination="GQx-Hg-adZ" id="uKk-fe-uUi"/>
                         <outlet property="number1Button" destination="ZUc-xX-FNX" id="zAT-qR-Xga"/>
@@ -427,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="144"/>
+            <point key="canvasLocation" x="159.54198473282443" y="143.66197183098592"/>
         </scene>
     </scenes>
     <resources>
