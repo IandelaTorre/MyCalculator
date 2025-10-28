@@ -30,14 +30,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var porcentageButton: UIButton!
     @IBOutlet weak var decimalButton: UIButton!
     
+    @IBOutlet weak var labelsUIView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        labelsUIView.layer.cornerRadius = 20
+        labelsUIView.layer.borderWidth = 1
+        labelsUIView.layer.borderColor = UIColor.black.cgColor
+        labelsUIView.clipsToBounds = true
+
+        
         let backgroundColor = UIColor(named: "MyCalculatorBackground") ?? .systemGray6
         let light = UIColor.white.withAlphaComponent(0.8)
         let dark = UIColor.black.withAlphaComponent(0.2)
             
-            [number0Button, number1Button, number2Button, number3Button, number4Button, number5Button, number6Button, number7Button,number8Button,  number9Button].forEach { button in
+            [number0Button, number1Button, number2Button, number3Button, number4Button, number5Button, number6Button, number7Button,number8Button,  number9Button,ACButton, divisionButton, multiplicationButton, backspaceButton, subtractionButton, additionButton, porcentageButton, decimalButton].forEach { button in
                 button?.applyNeumorphicStyle(
                     lightColor: light,
                     darkColor: dark,
@@ -45,15 +53,6 @@ class ViewController: UIViewController {
                     isDarkMode: false
                 )
             }
-        
-        [ACButton, divisionButton, multiplicationButton, backspaceButton, subtractionButton, additionButton, equalButton, porcentageButton, decimalButton].forEach { button in
-            button?.applyNeumorphicStyle(
-                lightColor: dark,
-                darkColor: light,
-                background: backgroundColor,
-                isDarkMode: false
-                )
-        }
         // Do any additional setup after loading the view.
     }
     
