@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalculatorViewController" id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="MyCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,16 +41,16 @@
                                         <rect key="frame" x="0.0" y="70" width="361" height="119.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-ua-pYB">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="119.66666666666667"/>
+                                                <rect key="frame" x="8" y="0.0" width="345" height="119.66666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12+34*1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-KG-Hbh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-Ky-PGN">
-                                                        <rect key="frame" x="0.0" y="60" width="361" height="59.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="60" width="345" height="59.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                         <color key="textColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -60,9 +60,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="leading" secondItem="REf-ND-3s1" secondAttribute="leading" id="Aot-Ws-2Vz"/>
+                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="leading" secondItem="REf-ND-3s1" secondAttribute="leading" constant="8" id="Aot-Ws-2Vz"/>
                                             <constraint firstAttribute="bottom" secondItem="8h0-ua-pYB" secondAttribute="bottom" id="LDl-h6-hoS"/>
-                                            <constraint firstAttribute="trailing" secondItem="8h0-ua-pYB" secondAttribute="trailing" id="Nx6-34-mi5"/>
+                                            <constraint firstAttribute="trailing" secondItem="8h0-ua-pYB" secondAttribute="trailing" constant="8" id="Nx6-34-mi5"/>
                                             <constraint firstItem="8h0-ua-pYB" firstAttribute="top" secondItem="REf-ND-3s1" secondAttribute="top" id="iSd-J8-YZc"/>
                                         </constraints>
                                     </view>

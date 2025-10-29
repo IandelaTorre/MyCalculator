@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import Combine
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
+    
+    var viewModel: CalculatorViewModel!
+    private var cancellables = Set<AnyCancellable>()
+    
+    required init?(coder: NSCoder) {
+                super.init(coder: coder)
+            }
     
     @IBOutlet weak var number0Button: UIButton!
     @IBOutlet weak var number1Button: UIButton!
