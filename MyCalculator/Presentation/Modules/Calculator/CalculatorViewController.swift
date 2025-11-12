@@ -39,6 +39,12 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var decimalButton: UIButton!
     
     @IBOutlet weak var labelsUIView: UIView!
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    
+    let operations: Dictionary<Int,String> = [-1:"/", -2:"*", -3:"-",-4:"+"]
+    var isAcActive: Bool = true
+    let decimalSeparator = Locale.current.decimalSeparator ?? "."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +53,11 @@ class CalculatorViewController: UIViewController {
         labelsUIView.layer.borderWidth = 1
         labelsUIView.layer.borderColor = UIColor.black.cgColor
         labelsUIView.clipsToBounds = true
+        
+        resultLabel.text = "0"
+        totalLabel.text = "0"
+        ACButton.setTitle("AC", for: .normal)
+        decimalButton.setTitle(decimalSeparator, for: .normal)
 
         
         let backgroundColor = UIColor(named: "MyCalculatorBackground") ?? .systemGray6
@@ -75,24 +86,44 @@ class CalculatorViewController: UIViewController {
 
 
     @IBAction func ACButtonAction(_ sender: UIButton) {
-    }
-    @IBAction func DivisionButtonAction(_ sender: UIButton) {
-    }
-    @IBAction func MultiplicationButtonAction(_ sender: UIButton) {
+        if isAcActive {
+            resultLabel.text = "0"
+            totalLabel.text = "0"
+        } else {
+            resultLabel.text = "0"
+            ACButton.setTitle("AC", for: .normal)
+        }
+        
     }
     @IBAction func BackspaceButtonAction(_ sender: UIButton) {
-    }
-    @IBAction func SubtractionButtonAction(_ sender: UIButton) {
-    }
-    @IBAction func AdditionButtonAction(_ sender: UIButton) {
+        if let text = resultLabel.text, !text.isEmpty {
+            resultLabel.text = String(text.dropLast())
+            ACButton.setTitle("C", for: .normal)
+            isAcActive = false
+        } else {
+            ACButton.setTitle("AC", for: .normal)
+            isAcActive = true
+        }
     }
     @IBAction func EqualButtonAction(_ sender: UIButton) {
+        totalLabel.text = resultLabel.text
+        resultLabel.text = "0"
+        ACButton.setTitle("AC", for: .normal)
+        isAcActive = true
     }
     @IBAction func PorcentageButtonAction(_ sender: UIButton) {
     }
     @IBAction func DecimalButtonAction(_ sender: UIButton) {
     }
     @IBAction func NumberButtonAction(_ sender: UIButton) {
+        print(sender.tag)
+        if sender.tag < 0 {
+            resultLabel.text! += operations[sender.tag] ?? ""
+        } else {
+            resultLabel.text! += String(sender.tag)
+        }
+        ACButton.setTitle("C", for: .normal)
+        isAcActive = false
     }
 }
 

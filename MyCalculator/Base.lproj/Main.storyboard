@@ -152,7 +152,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QTk-my-Aq5">
                                                 <rect key="frame" x="95.333333333333343" y="0.0" width="75.333333333333343" height="456.33333333333331"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ew-fi-ZV3">
+                                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ew-fi-ZV3">
                                                         <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="75.333333333333329"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -165,7 +165,7 @@
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="DivisionButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2aT-sm-qjq"/>
+                                                            <action selector="NumberButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vXJ-mu-YNn"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r42-jF-Y6e">
@@ -233,7 +233,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mhu-Hh-MZs">
                                                 <rect key="frame" x="190.66666666666666" y="0.0" width="74.999999999999972" height="456.33333333333331"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JY-xX-zkf">
+                                                    <button opaque="NO" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JY-xX-zkf">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75.333333333333329"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -246,7 +246,7 @@
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="MultiplicationButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubG-Za-L15"/>
+                                                            <action selector="NumberButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vQe-E3-8DN"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ai-mF-7KD">
@@ -333,7 +333,7 @@
                                                                     <action selector="BackspaceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vxk-Ol-QyT"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMI-qr-KKH" userLabel="-">
+                                                            <button opaque="NO" tag="-3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMI-qr-KKH" userLabel="-">
                                                                 <rect key="frame" x="0.0" y="95.333333333333314" width="75.333333333333329" height="75.333333333333314"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -346,10 +346,10 @@
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="SubtractionButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MPw-gJ-qma"/>
+                                                                    <action selector="NumberButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E5M-W4-KvW"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLd-wI-N6f" userLabel="+">
+                                                            <button opaque="NO" tag="-4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLd-wI-N6f" userLabel="+">
                                                                 <rect key="frame" x="0.0" y="190.66666666666669" width="75.333333333333329" height="75.333333333333314"/>
                                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -362,7 +362,7 @@
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="AdditionButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CV5-Hx-4ih"/>
+                                                                    <action selector="NumberButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLS-DW-4AJ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -428,7 +428,9 @@
                         <outlet property="number8Button" destination="r42-jF-Y6e" id="B2w-qp-fT8"/>
                         <outlet property="number9Button" destination="3ai-mF-7KD" id="I8P-Nw-hMo"/>
                         <outlet property="porcentageButton" destination="J5n-hT-Ft2" id="ebh-b9-MTN"/>
+                        <outlet property="resultLabel" destination="uig-KG-Hbh" id="qY7-hz-rwF"/>
                         <outlet property="subtractionButton" destination="RMI-qr-KKH" id="7k5-0U-ham"/>
+                        <outlet property="totalLabel" destination="wF2-Ky-PGN" id="s3e-Xq-Rka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -444,13 +446,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.38039215686274508" green="0.33333333333333331" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
