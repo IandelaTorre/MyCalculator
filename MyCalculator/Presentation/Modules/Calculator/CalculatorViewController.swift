@@ -45,6 +45,7 @@ class CalculatorViewController: UIViewController {
     let operations: Dictionary<Int,String> = [-1:"/", -2:"*", -3:"-",-4:"+"]
     var isAcActive: Bool = true
     let decimalSeparator = Locale.current.decimalSeparator ?? "."
+    var typeCalculator: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +55,12 @@ class CalculatorViewController: UIViewController {
         labelsUIView.layer.borderColor = UIColor.black.cgColor
         labelsUIView.clipsToBounds = true
         
-        resultLabel.text = "0"
-        totalLabel.text = "0"
+        resultLabel.text = ""
+        totalLabel.text = ""
         ACButton.setTitle("AC", for: .normal)
         decimalButton.setTitle(decimalSeparator, for: .normal)
+        bind()
+        viewModel.loadUnits()
 
         
         let backgroundColor = UIColor(named: "MyCalculatorBackground") ?? .systemGray6
@@ -73,6 +76,24 @@ class CalculatorViewController: UIViewController {
                 )
             }
         // Do any additional setup after loading the view.
+    }
+    
+    private func bind() {
+        
+        viewModel.$result
+            .receive(on: RunLoop.main)
+            .sink { [weak self] result in
+                self?.totalLabel.text = result ?? "-"
+                
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$typeCalculator
+            .receive(on: RunLoop.main)
+            .sink { [weak self] type in
+                self?.typeCalculator = type
+            }
+            .store(in: &cancellables)
     }
     
     @IBAction func buttonTouchDown(_ sender: UIButton) {
@@ -124,6 +145,7 @@ class CalculatorViewController: UIViewController {
         }
         ACButton.setTitle("C", for: .normal)
         isAcActive = false
+        viewModel.expression = resultLabel.text
     }
 }
 
