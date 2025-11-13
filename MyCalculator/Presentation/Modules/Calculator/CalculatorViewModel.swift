@@ -10,12 +10,12 @@ import Combine
 
 class CalculatorViewModel {
     
-    @Published var expression: String = ""
+    @Published var expression: String? = "0"
     @Published var typeCalculator: Bool = true
     @Published var fromUnits: String? = "From"
     @Published var toUnits: String? = "To"
     
-    @Published private(set) var result: Double? = 0.0
+    @Published private(set) var result: String? = "0"
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var availableUnits: [String] = []
     @Published private(set) var errorMessage: String?
@@ -32,7 +32,7 @@ class CalculatorViewModel {
         Publishers.CombineLatest4($expression, $typeCalculator, $fromUnits, $toUnits)
                     .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
                     .sink { [weak self] amountStr, typeC, from, to in
-                        self?.performCalculator(expressionStr: amountStr, typeC: typeC, from: from ?? "", to: to ?? "")
+                        self?.performCalculator(expressionStr: amountStr ?? "", typeC: typeC, from: from ?? "", to: to ?? "")
                     }
                     .store(in: &cancellables)
     }
@@ -52,28 +52,44 @@ class CalculatorViewModel {
         }
     }
     
-    private func performCalculator(expressionStr: String, typeC: Bool, from: String, to: String) {
-        guard let units = units else {
-            result = nil
+    private func performCalculator(expressionStr: String?, typeC: Bool, from: String, to: String) {
+        guard let units = self.units else {
+            self.result = nil
             return
         }
         if (typeC) {
-            result = evaluateExpression(expression)
-        } else {
-            if let converted = convertUnitsUseCase.execute(amount: Double(expression) ?? 0, from: from, to: to, units: units) {
-                result = converted
+            if let evaluated = evaluateExpression(expressionStr ?? "0") {
+                self.result = String(evaluated)
+            }
+        }
+        else {
+            if let converted = convertUnitsUseCase.execute(amount: Double(expressionStr ?? "") ?? 0.0, from: from, to: to, units: units) {
+                self.result = String(converted)
             }
         }
         
     }
     
     
-    private func evaluateExpression(_ expression: String) -> Double? {
-        let exp = NSExpression(format: expression)
+    private func evaluateExpression(_ expression: String?) -> Double? {
+        guard let raw = expression?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !raw.isEmpty else { return nil }
+
+        let invalidEndings: Set<Character> = ["+", "-", "*", "/", "."]
+        if let last = raw.last, invalidEndings.contains(last) {
+            return nil
+        }
+
+        let sanitized = raw
+            .replacingOccurrences(of: "×", with: "*")
+            .replacingOccurrences(of: "÷", with: "/")
+
+        let exp = NSExpression(format: sanitized)
         if let result = exp.expressionValue(with: nil, context: nil) as? NSNumber {
             return result.doubleValue
         }
         return nil
     }
+
     
 }
