@@ -42,7 +42,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
-    let operations: Dictionary<Int,String> = [-1:"/", -2:"*", -3:"-",-4:"+"]
+    let operations: Dictionary<Int,String> = [ -1: "/", -2: "*", -3: "-", -4: "+", -5: "(", -6: ")" ]
     var isAcActive: Bool = true
     let decimalSeparator = Locale.current.decimalSeparator ?? "."
     var typeCalculator: Bool = true
@@ -108,17 +108,19 @@ class CalculatorViewController: UIViewController {
 
     @IBAction func ACButtonAction(_ sender: UIButton) {
         if isAcActive {
-            resultLabel.text = "0"
-            totalLabel.text = "0"
+            totalLabel.text = ""
         } else {
-            resultLabel.text = "0"
+            resultLabel.text = ""
+            viewModel.expression = ""
             ACButton.setTitle("AC", for: .normal)
+            isAcActive = true
         }
-        
     }
+    
     @IBAction func BackspaceButtonAction(_ sender: UIButton) {
         if let text = resultLabel.text, !text.isEmpty {
             resultLabel.text = String(text.dropLast())
+            viewModel.expression = String(text.dropLast())
             ACButton.setTitle("C", for: .normal)
             isAcActive = false
         } else {
@@ -126,26 +128,31 @@ class CalculatorViewController: UIViewController {
             isAcActive = true
         }
     }
+    
     @IBAction func EqualButtonAction(_ sender: UIButton) {
-        totalLabel.text = resultLabel.text
-        resultLabel.text = "0"
+        resultLabel.text! = ""
+        viewModel.expression = ""
         ACButton.setTitle("AC", for: .normal)
         isAcActive = true
     }
+    
     @IBAction func PorcentageButtonAction(_ sender: UIButton) {
     }
+    
     @IBAction func DecimalButtonAction(_ sender: UIButton) {
+        updateExpression(newValue: ".")
     }
+    
     @IBAction func NumberButtonAction(_ sender: UIButton) {
-        print(sender.tag)
-        if sender.tag < 0 {
-            resultLabel.text! += operations[sender.tag] ?? ""
-        } else {
-            resultLabel.text! += String(sender.tag)
-        }
+        updateExpression(newValue: sender.tag < 0 ? operations[sender.tag]! : String(sender.tag))
         ACButton.setTitle("C", for: .normal)
         isAcActive = false
+    }
+    
+    private func updateExpression(newValue: String) {
+        resultLabel.text! += newValue
         viewModel.expression = resultLabel.text
     }
+    
 }
 
