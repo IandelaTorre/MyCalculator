@@ -20,17 +20,16 @@ class CalculatorViewModel {
     @Published private(set) var availableUnits: [String] = []
     @Published private(set) var errorMessage: String?
     
-    
-
-    
     private let convertUnitsUseCase: ConvertUnitUseCase
     private let fetchUnits: GetUnitsUseCase
+    private let evaluateExpressionuseCase: EvaluateExpressionUseCase
     private var units: Units?
     private var cancellables = Set<AnyCancellable>()
     
-    init(convertUnitsUseCase: ConvertUnitUseCase, fetchUnits: GetUnitsUseCase) {
+    init(convertUnitsUseCase: ConvertUnitUseCase, fetchUnits: GetUnitsUseCase, evaluateExpressionUseCase: EvaluateExpressionUseCase) {
         self.convertUnitsUseCase = convertUnitsUseCase
         self.fetchUnits = fetchUnits
+        self.evaluateExpressionuseCase = evaluateExpressionUseCase
         
         Publishers.CombineLatest4($expression, $typeCalculator, $fromUnits, $toUnits)
                     .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
@@ -55,6 +54,10 @@ class CalculatorViewModel {
         }
     }
     
+    func selectCurrency(code: String, forFrom: Bool) {
+            if forFrom { fromUnits = code } else { toUnits = code }
+        }
+    
     private func performCalculator(expressionStr: String?, typeC: Mode, from: String, to: String) {
         guard let units = self.units else {
             self.result = nil
@@ -62,7 +65,7 @@ class CalculatorViewModel {
         }
         switch typeC {
         case .calculator:
-            if let evaluated = evaluateExpression(expressionStr ?? "0") {
+            if let evaluated = evaluateExpressionuseCase.execute(expression: expressionStr ?? "") {
                 self.result = String(evaluated)
             }
             
@@ -72,27 +75,5 @@ class CalculatorViewModel {
             }
         }
     }
-    
-    
-    private func evaluateExpression(_ expression: String?) -> Double? {
-        guard let raw = expression?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !raw.isEmpty else { return nil }
-
-        let invalidEndings: Set<Character> = ["+", "-", "*", "/", "."]
-        if let last = raw.last, invalidEndings.contains(last) {
-            return nil
-        }
-
-        let sanitized = raw
-            .replacingOccurrences(of: "×", with: "*")
-            .replacingOccurrences(of: "÷", with: "/")
-
-        let exp = NSExpression(format: sanitized)
-        if let result = exp.expressionValue(with: nil, context: nil) as? NSNumber {
-            return result.doubleValue
-        }
-        return nil
-    }
-
     
 }
