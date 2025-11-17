@@ -442,6 +442,7 @@
                         <outlet property="decimalButton" destination="xD4-An-tDf" id="zyc-jE-xgv"/>
                         <outlet property="divisionButton" destination="3Ew-fi-ZV3" id="ddn-ke-cBh"/>
                         <outlet property="equalButton" destination="uAD-vT-Zov" id="6TY-eL-C63"/>
+                        <outlet property="fromUnitButton" destination="YuN-Fp-E00" id="sBT-FD-RwT"/>
                         <outlet property="labelsUIView" destination="REf-ND-3s1" id="YN1-Al-DhQ"/>
                         <outlet property="multiplicationButton" destination="6JY-xX-zkf" id="yhF-4d-Fyc"/>
                         <outlet property="number0Button" destination="GQx-Hg-adZ" id="uKk-fe-uUi"/>
@@ -457,13 +458,14 @@
                         <outlet property="porcentageButton" destination="J5n-hT-Ft2" id="ebh-b9-MTN"/>
                         <outlet property="resultLabel" destination="uig-KG-Hbh" id="qY7-hz-rwF"/>
                         <outlet property="subtractionButton" destination="RMI-qr-KKH" id="7k5-0U-ham"/>
+                        <outlet property="toUnitButton" destination="cuh-3u-9rA" id="DxR-fe-lN8"/>
                         <outlet property="totalLabel" destination="wF2-Ky-PGN" id="s3e-Xq-Rka"/>
                         <outlet property="typeCalculatorSegmentedControl" destination="3Qh-10-0t2" id="ktw-N6-8nA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159.54198473282443" y="143.66197183098592"/>
+            <point key="canvasLocation" x="98" y="144"/>
         </scene>
     </scenes>
     <resources>

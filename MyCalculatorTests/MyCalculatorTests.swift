@@ -10,27 +10,31 @@ import XCTest
 
 final class MyCalculatorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var useCase: ConvertUnitUseCase!
+    var evaluateExpression: EvaluateExpressionUseCase!
+    let units = Units(base: "m", units: [ "m": 1.0, "cm": 100.0, "mm": 1000.0, "km": 0.001, "in": 39.3701, "ft": 3.28084, "yd": 1.09361])
+
+    override func setUp() {
+        super.setUp()
+        useCase = ConvertUnitUseCase()
+        evaluateExpression = EvaluateExpressionUseCase()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        useCase = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test_convertUnits_mToCm_calculatedAmount() {
+        let result = useCase.execute(amount: 150, from: "m", to: "cm", units: units)
+        XCTAssertEqual(result, 15000.0)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_calculateExpression_3Plus2_result() {
+        let result = evaluateExpression.execute(expression: "3+2")
+        XCTAssertEqual(result, 5.0)
     }
+    
+    
 
 }

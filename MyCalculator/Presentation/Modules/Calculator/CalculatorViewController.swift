@@ -38,6 +38,11 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var porcentageButton: UIButton!
     @IBOutlet weak var decimalButton: UIButton!
     
+   
+    @IBOutlet weak var fromUnitButton: UIButton!
+    @IBOutlet weak var toUnitButton: UIButton!
+    
+    
     @IBOutlet weak var labelsUIView: UIView!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -71,6 +76,8 @@ class CalculatorViewController: UIViewController {
     private func bind() {
         
         typeCalculatorSegmentedControl.addTarget(self, action: #selector(modeChanged(_:)), for: .valueChanged)
+        fromUnitButton.addTarget(self, action: #selector(fromTapped), for: .touchUpInside)
+        toUnitButton.addTarget(self, action: #selector(toTapped), for: .touchUpInside)
         
         viewModel.$result
             .receive(on: RunLoop.main)
@@ -86,6 +93,21 @@ class CalculatorViewController: UIViewController {
                 self?.typeCalculator = type.rawValue
             }
             .store(in: &cancellables)
+        
+        viewModel.$fromUnits
+            .receive(on: RunLoop.main)
+            .sink { [weak self] from in
+                self?.fromUnitButton.setTitle(from, for: .normal)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$toUnits
+            .receive(on: RunLoop.main)
+            .sink { [weak self] to in
+                self?.toUnitButton.setTitle(to, for: .normal)
+            }
+            .store(in: &cancellables)
+        
     }
 
 
@@ -137,6 +159,26 @@ class CalculatorViewController: UIViewController {
         viewModel.expression = resultLabel.text
     }
     
+    private func presentUnitSelector(forFrom: Bool) {
+        let codes = viewModel.availableUnits
+        let alert = UIAlertController(title: "Selecciona una unidad", message: nil, preferredStyle: .actionSheet)
+        codes.forEach { code in
+            alert.addAction(UIAlertAction(title: code, style: .default) { [weak self] _ in
+                self?.viewModel.selectCurrency(code: code, forFrom: forFrom)
+            })
+        }
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    @objc private func fromTapped() {
+        presentUnitSelector(forFrom: true)
+    }
+    
+    @objc func toTapped() {
+        presentUnitSelector(forFrom: false)
+    }
+    
     @objc func modeChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -170,7 +212,6 @@ class CalculatorViewController: UIViewController {
                 lightColor: light,
                 darkColor: dark,
                 background: backgroundColor,
-                // no paso cornerRadius → usa height/2
                 isDarkMode: false
             )
         }

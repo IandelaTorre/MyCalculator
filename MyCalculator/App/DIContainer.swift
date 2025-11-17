@@ -13,6 +13,7 @@ final class DIContainer {
         repository = LocalUnitsRepository()
         let getUnits = GetUnitsUseCase(repository: repository)
         let convertUseCase = ConvertUnitUseCase()
-        return CalculatorViewModel(convertUnitsUseCase: convertUseCase, fetchUnits: getUnits)
+        let evaluateExpressionUseCase = EvaluateExpressionUseCase()
+        return CalculatorViewModel(convertUnitsUseCase: convertUseCase, fetchUnits: getUnits, evaluateExpressionUseCase: evaluateExpressionUseCase)
     }
 }
