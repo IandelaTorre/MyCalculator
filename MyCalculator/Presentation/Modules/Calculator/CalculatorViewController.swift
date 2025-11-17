@@ -42,10 +42,13 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
-    let operations: Dictionary<Int,String> = [-1:"/", -2:"*", -3:"-",-4:"+"]
+    @IBOutlet weak var conversionSectionStackView: UIStackView!
+    @IBOutlet weak var typeCalculatorSegmentedControl: UISegmentedControl!
+    
     var isAcActive: Bool = true
-    let decimalSeparator = Locale.current.decimalSeparator ?? "."
-    var typeCalculator: Bool = true
+    
+    var typeCalculator: Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,31 +57,20 @@ class CalculatorViewController: UIViewController {
         labelsUIView.layer.borderWidth = 1
         labelsUIView.layer.borderColor = UIColor.black.cgColor
         labelsUIView.clipsToBounds = true
+        conversionSectionStackView.isHidden = true
         
         resultLabel.text = ""
         totalLabel.text = ""
         ACButton.setTitle("AC", for: .normal)
-        decimalButton.setTitle(decimalSeparator, for: .normal)
+        decimalButton.setTitle(CalculatorConstants.decimalSeparator, for: .normal)
         bind()
         viewModel.loadUnits()
 
-        
-        let backgroundColor = UIColor(named: "MyCalculatorBackground") ?? .systemGray6
-        let light = UIColor.white.withAlphaComponent(0.8)
-        let dark = UIColor.black.withAlphaComponent(0.2)
-            
-            [number0Button, number1Button, number2Button, number3Button, number4Button, number5Button, number6Button, number7Button,number8Button,  number9Button,ACButton, divisionButton, multiplicationButton, backspaceButton, subtractionButton, additionButton, porcentageButton, decimalButton].forEach { button in
-                button?.applyNeumorphicStyle(
-                    lightColor: light,
-                    darkColor: dark,
-                    background: backgroundColor,
-                    isDarkMode: false
-                )
-            }
-        // Do any additional setup after loading the view.
     }
     
     private func bind() {
+        
+        typeCalculatorSegmentedControl.addTarget(self, action: #selector(modeChanged(_:)), for: .valueChanged)
         
         viewModel.$result
             .receive(on: RunLoop.main)
@@ -91,34 +83,27 @@ class CalculatorViewController: UIViewController {
         viewModel.$typeCalculator
             .receive(on: RunLoop.main)
             .sink { [weak self] type in
-                self?.typeCalculator = type
+                self?.typeCalculator = type.rawValue
             }
             .store(in: &cancellables)
     }
-    
-    @IBAction func buttonTouchDown(_ sender: UIButton) {
-        sender.applyPressedNeumorphicEffect()
-    }
-
-    @IBAction func buttonTouchUp(_ sender: UIButton) {
-        sender.removePressedNeumorphicEffect()
-    }
-
 
 
     @IBAction func ACButtonAction(_ sender: UIButton) {
         if isAcActive {
-            resultLabel.text = "0"
-            totalLabel.text = "0"
+            totalLabel.text = ""
         } else {
-            resultLabel.text = "0"
+            resultLabel.text = ""
+            viewModel.expression = ""
             ACButton.setTitle("AC", for: .normal)
+            isAcActive = true
         }
-        
     }
+    
     @IBAction func BackspaceButtonAction(_ sender: UIButton) {
         if let text = resultLabel.text, !text.isEmpty {
             resultLabel.text = String(text.dropLast())
+            viewModel.expression = String(text.dropLast())
             ACButton.setTitle("C", for: .normal)
             isAcActive = false
         } else {
@@ -126,26 +111,71 @@ class CalculatorViewController: UIViewController {
             isAcActive = true
         }
     }
+    
     @IBAction func EqualButtonAction(_ sender: UIButton) {
-        totalLabel.text = resultLabel.text
-        resultLabel.text = "0"
+        resultLabel.text! = ""
+        viewModel.expression = ""
         ACButton.setTitle("AC", for: .normal)
         isAcActive = true
     }
+    
     @IBAction func PorcentageButtonAction(_ sender: UIButton) {
     }
+    
     @IBAction func DecimalButtonAction(_ sender: UIButton) {
+        updateExpression(newValue: ".")
     }
+    
     @IBAction func NumberButtonAction(_ sender: UIButton) {
-        print(sender.tag)
-        if sender.tag < 0 {
-            resultLabel.text! += operations[sender.tag] ?? ""
-        } else {
-            resultLabel.text! += String(sender.tag)
-        }
+        updateExpression(newValue: sender.tag < 0 ? CalculatorConstants.operations[sender.tag]! : String(sender.tag))
         ACButton.setTitle("C", for: .normal)
         isAcActive = false
+    }
+    
+    private func updateExpression(newValue: String) {
+        resultLabel.text! += newValue
         viewModel.expression = resultLabel.text
     }
+    
+    @objc func modeChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            conversionSectionStackView.isHidden = true
+            viewModel.typeCalculator = Mode(rawValue: 0)!
+        case 1:
+            conversionSectionStackView.isHidden = false
+            viewModel.typeCalculator = Mode(rawValue: 1)!
+        default:
+            return
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let backgroundColor = UIColor(named: "MyCalculatorBackground") ?? .systemGray6
+        let light = UIColor.white.withAlphaComponent(0.8)
+        let dark = UIColor.black.withAlphaComponent(0.2)
+
+        let buttons = [
+            number0Button, number1Button, number2Button, number3Button,
+            number4Button, number5Button, number6Button, number7Button,
+            number8Button, number9Button, ACButton, divisionButton,
+            multiplicationButton, backspaceButton, subtractionButton,
+            additionButton, porcentageButton, decimalButton
+        ]
+
+        buttons.forEach { button in
+            button?.applyNeumorphicStyle(
+                lightColor: light,
+                darkColor: dark,
+                background: backgroundColor,
+                // no paso cornerRadius → usa height/2
+                isDarkMode: false
+            )
+        }
+    }
+
+    
 }
 

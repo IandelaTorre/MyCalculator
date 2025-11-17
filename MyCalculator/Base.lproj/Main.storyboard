@@ -40,30 +40,56 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REf-ND-3s1">
                                         <rect key="frame" x="0.0" y="70" width="361" height="119.66666666666669"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-ua-pYB">
-                                                <rect key="frame" x="8" y="0.0" width="345" height="119.66666666666667"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rq0-9U-hj8">
+                                                <rect key="frame" x="8" y="0.0" width="345" height="115.66666666666667"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12+34*1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-KG-Hbh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-Ky-PGN">
-                                                        <rect key="frame" x="0.0" y="60" width="345" height="59.666666666666657"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                        <color key="textColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-ua-pYB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="81.333333333333329"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12+34*1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-KG-Hbh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="40.666666666666664"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-Ky-PGN">
+                                                                <rect key="frame" x="0.0" y="40.666666666666657" width="345" height="40.666666666666657"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                                <color key="textColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-dv-IZN">
+                                                        <rect key="frame" x="0.0" y="81.333333333333314" width="345" height="34.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-Fp-E00">
+                                                                <rect key="frame" x="0.0" y="0.0" width="115" height="34.333333333333336"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMc-Bw-GeY">
+                                                                <rect key="frame" x="115" y="0.0" width="115" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-3u-9rA">
+                                                                <rect key="frame" x="230" y="0.0" width="115" height="34.333333333333336"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="leading" secondItem="REf-ND-3s1" secondAttribute="leading" constant="8" id="Aot-Ws-2Vz"/>
-                                            <constraint firstAttribute="bottom" secondItem="8h0-ua-pYB" secondAttribute="bottom" id="LDl-h6-hoS"/>
-                                            <constraint firstAttribute="trailing" secondItem="8h0-ua-pYB" secondAttribute="trailing" constant="8" id="Nx6-34-mi5"/>
-                                            <constraint firstItem="8h0-ua-pYB" firstAttribute="top" secondItem="REf-ND-3s1" secondAttribute="top" id="iSd-J8-YZc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rq0-9U-hj8" secondAttribute="trailing" constant="8" id="KWc-Bi-D9S"/>
+                                            <constraint firstItem="Rq0-9U-hj8" firstAttribute="top" secondItem="REf-ND-3s1" secondAttribute="top" id="Uva-xU-Qfm"/>
+                                            <constraint firstItem="Rq0-9U-hj8" firstAttribute="leading" secondItem="REf-ND-3s1" secondAttribute="leading" constant="8" id="XST-Z2-DK6"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rq0-9U-hj8" secondAttribute="bottom" constant="4" id="e7u-z9-Hea"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvm-AB-la7">
@@ -78,7 +104,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="tnN-HX-OXB" secondAttribute="height" multiplier="1:1" id="T7z-gc-ZaJ"/>
                                                         </constraints>
-                                                        <buttonConfiguration key="configuration" style="plain" title="AC" cornerStyle="capsule">
+                                                        <buttonConfiguration key="configuration" style="plain" title="AC">
                                                             <backgroundConfiguration key="background"/>
                                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -95,7 +121,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="7">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -110,7 +136,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="4">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -125,7 +151,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="1">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -140,7 +166,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="%">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -159,7 +185,7 @@
                                                             <constraint firstAttribute="width" secondItem="3Ew-fi-ZV3" secondAttribute="height" multiplier="1:1" id="aCa-ai-q2d"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="/" cornerStyle="capsule">
+                                                        <buttonConfiguration key="configuration" style="plain" title="/">
                                                             <backgroundConfiguration key="background"/>
                                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -175,7 +201,7 @@
                                                             <constraint firstAttribute="width" secondItem="r42-jF-Y6e" secondAttribute="height" multiplier="1:1" id="xrF-lm-hgl"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="8" cornerStyle="capsule">
+                                                        <buttonConfiguration key="configuration" style="plain" title="8">
                                                             <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
@@ -191,7 +217,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="5">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -206,7 +232,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="2">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -221,7 +247,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="0">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -240,7 +266,7 @@
                                                             <constraint firstAttribute="width" secondItem="6JY-xX-zkf" secondAttribute="height" multiplier="1:1" id="kqE-gE-owu"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="X" cornerStyle="capsule">
+                                                        <buttonConfiguration key="configuration" style="plain" title="X">
                                                             <backgroundConfiguration key="background"/>
                                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -257,7 +283,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="9">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -272,7 +298,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="6">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -287,7 +313,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="3">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -302,7 +328,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title=".">
-                                                            <backgroundConfiguration key="background" cornerRadius="40"/>
+                                                            <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -324,7 +350,7 @@
                                                                     <constraint firstAttribute="width" secondItem="RN1-mt-KX2" secondAttribute="height" multiplier="1:1" id="dcs-kP-bef"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="←" cornerStyle="capsule">
+                                                                <buttonConfiguration key="configuration" style="plain" title="←">
                                                                     <backgroundConfiguration key="background"/>
                                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                                     <color key="baseForegroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -340,7 +366,7 @@
                                                                     <constraint firstAttribute="width" secondItem="RMI-qr-KKH" secondAttribute="height" multiplier="1:1" id="gq6-Fz-25w"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="-" cornerStyle="capsule">
+                                                                <buttonConfiguration key="configuration" style="plain" title="-">
                                                                     <backgroundConfiguration key="background"/>
                                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -356,7 +382,7 @@
                                                                     <constraint firstAttribute="width" secondItem="rLd-wI-N6f" secondAttribute="height" multiplier="1:1" id="JhS-aN-NyL"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="+" cornerStyle="capsule">
+                                                                <buttonConfiguration key="configuration" style="plain" title="+">
                                                                     <backgroundConfiguration key="background"/>
                                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -412,6 +438,7 @@
                         <outlet property="ACButton" destination="tnN-HX-OXB" id="vzv-Yo-SUA"/>
                         <outlet property="additionButton" destination="rLd-wI-N6f" id="14Y-YN-xtQ"/>
                         <outlet property="backspaceButton" destination="RN1-mt-KX2" id="931-7u-d3R"/>
+                        <outlet property="conversionSectionStackView" destination="6h7-dv-IZN" id="CUe-Ll-juG"/>
                         <outlet property="decimalButton" destination="xD4-An-tDf" id="zyc-jE-xgv"/>
                         <outlet property="divisionButton" destination="3Ew-fi-ZV3" id="ddn-ke-cBh"/>
                         <outlet property="equalButton" destination="uAD-vT-Zov" id="6TY-eL-C63"/>
@@ -431,6 +458,7 @@
                         <outlet property="resultLabel" destination="uig-KG-Hbh" id="qY7-hz-rwF"/>
                         <outlet property="subtractionButton" destination="RMI-qr-KKH" id="7k5-0U-ham"/>
                         <outlet property="totalLabel" destination="wF2-Ky-PGN" id="s3e-Xq-Rka"/>
+                        <outlet property="typeCalculatorSegmentedControl" destination="3Qh-10-0t2" id="ktw-N6-8nA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -446,13 +474,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.38039215686274508" green="0.33333333333333331" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

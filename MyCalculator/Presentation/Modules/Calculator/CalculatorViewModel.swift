@@ -11,7 +11,7 @@ import Combine
 class CalculatorViewModel {
     
     @Published var expression: String? = "0"
-    @Published var typeCalculator: Bool = true
+    @Published var typeCalculator: Mode = .calculator
     @Published var fromUnits: String? = "From"
     @Published var toUnits: String? = "To"
     
@@ -19,6 +19,9 @@ class CalculatorViewModel {
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var availableUnits: [String] = []
     @Published private(set) var errorMessage: String?
+    
+    
+
     
     private let convertUnitsUseCase: ConvertUnitUseCase
     private let fetchUnits: GetUnitsUseCase
@@ -52,22 +55,22 @@ class CalculatorViewModel {
         }
     }
     
-    private func performCalculator(expressionStr: String?, typeC: Bool, from: String, to: String) {
+    private func performCalculator(expressionStr: String?, typeC: Mode, from: String, to: String) {
         guard let units = self.units else {
             self.result = nil
             return
         }
-        if (typeC) {
+        switch typeC {
+        case .calculator:
             if let evaluated = evaluateExpression(expressionStr ?? "0") {
                 self.result = String(evaluated)
             }
-        }
-        else {
+            
+        case .converter:
             if let converted = convertUnitsUseCase.execute(amount: Double(expressionStr ?? "") ?? 0.0, from: from, to: to, units: units) {
                 self.result = String(converted)
             }
         }
-        
     }
     
     
